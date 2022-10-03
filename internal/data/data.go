@@ -20,7 +20,6 @@ type Results struct {
 func NewResults(url string) (*Results, error) {
 	gasPrice, err := downloadJson(url)
 	if err != nil {
-		log.Printf("ERROR: %v", err)
 		return nil, err
 	}
 
