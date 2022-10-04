@@ -51,7 +51,7 @@ func main() {
 
 	go func() {
 		if err = app.ListenAndServe(); err != nil {
-			log.Fatal(err)
+			log.Printf("Server Failed: %v", err)
 		}
 	}()
 
@@ -63,7 +63,7 @@ func main() {
 	defer cancel()
 
 	if err = app.Shutdown(ctx); err != nil {
-		log.Fatalf("Shutdown Failed: %v", err)
+		log.Printf("Shutdown Failed: %v", err)
 	}
 
 	log.Print("Server Stopped")
