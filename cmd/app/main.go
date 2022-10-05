@@ -52,6 +52,7 @@ func main() {
 	go func() {
 		if err = app.ListenAndServe(); err != nil {
 			log.Printf("Server Failed: %v", err)
+			done <- syscall.SIGINT
 		}
 	}()
 
